@@ -138,6 +138,8 @@
   rgw keystone verify ssl = false
 <% end -%>
   nss db path = <%= node['ceph']['radosgw']['nss_directory'] %>
+  # TODO only enable this when openstack-ec2 is enabled
+  rgw s3 auth use keystone = true
   <% end -%>
 <% if (! node['ceph']['config']['rgw'].nil?) -%>
   <% node['ceph']['config']['rgw'].sort.each do |k, v| -%>
